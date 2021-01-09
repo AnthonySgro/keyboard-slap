@@ -1,18 +1,25 @@
 html {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #60a9ff;
+    background-color: #1d3557;
+    color: #f1faee;
     display: flex;
     justify-content: center;
     align-items: start;
     min-height: 100vh;
+    padding-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 .keyboard-slap {
-    background-color: white;
+    background-color: #e63946;
     border-radius: 10px;
     padding: 15px 25px;
     width: 100%;
@@ -25,4 +32,106 @@ body {
 
 #slapthiskey, #user-input-display {
     text-decoration: underline;
+}
+
+#key-list {
+    margin: 0px 0px 16px;
+    padding: 0px;
+}
+
+.key {
+    display: inline;
+    font-size: 20px;
+    border: 2px solid white;
+    border-radius: 10%;
+    padding: 5px 15px;
+    margin: 0px 10px;
+    box-shadow: 0 7px 10px -4px rgba(0,0,0,0.62);
+}
+
+a {
+    color: #f1faee;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#submit-mash {
+    background: transparent;
+    border: none !important;
+    font-size:0;
+}
+
+#enter-mash {
+    opacity: .85;
+    background-color: #f1faee;
+    color: #4c5b56;
+    border: 2px solid #f1faee;
+    border-radius: 50%;
+    width: 145px;
+    height: 145px;
+    font-size: 15px;
+    outline: none;
+}
+
+.center {
+    text-align: center;
+    box-shadow: 0 7px 10px -4px rgba(0,0,0,0.62);
+}
+
+#input-parent {
+    width: 160px;
+    margin: 35px auto 35px;
+    position: relative;
+}
+
+#timer {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 90px;
+    left: 110px;
+    font-family: "poppins";
+    padding: 8px 12px;
+}
+
+#audio-play, #audio-pause {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 9px;
+    position: relative;
+    left: -220px;
+    top: -40px;
+}
+
+
+
+#audio-controls {
+    position: absolute;
+    top: 450px;
+}
+
+button {
+    box-shadow: 0 7px 10px -4px rgba(0,0,0,0.62);
+    background-color: #457b9d;
+    border: 1px solid transparent;
+    justify-content: center;
+    color: #f1faee;
+    outline: none;
+}
+
+button:hover, button:focus {
+    transition: background-color 200ms ease-in-out;
+    color: #f1faee;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e1f1ff;
+}
+
+button.is-featured {
+    background-color: #48aaff;
+    color: white;
 }

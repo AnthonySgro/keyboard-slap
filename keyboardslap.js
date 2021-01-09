@@ -118,9 +118,6 @@ let game = newGame();
 
 // -------------------------HTML AFTER THIS------------------------
 
-//Base cases on the document
-document.getElementById('slap-this-key-display').innerHTML = "";
-
 //when you submit mash...
 let enterSubmitButton = document.getElementById('submit-mash');
 enterSubmitButton.addEventListener('click', function() {
@@ -132,13 +129,16 @@ enterSubmitButton.addEventListener('click', function() {
     game.calculateRound();
     game.generateNewKeySet();
 
-    document.getElementById('slap-this-key-display').innerHTML = game.keySet
+    document.getElementById('key1').innerHTML = game.keySet[0];
+    document.getElementById('key2').innerHTML = game.keySet[1];
+    document.getElementById('key3').innerHTML = game.keySet[2];
+
     document.getElementById('score').innerHTML = game.currentScore;
 })
 
 //when you start timer
-let enterStartStopButton = document.getElementById('start-stop');
-enterStartStopButton.addEventListener('click', function() {
+let enterTimerButton= document.getElementById('timer');
+enterTimerButton.addEventListener('click', function() {
 
     //submits slap every 3 seconds
     let submitAnswers = setInterval(function() {
@@ -150,14 +150,32 @@ enterStartStopButton.addEventListener('click', function() {
     //updates countdown every second
     let countdown = setInterval(function() {
         counter++;
-        document.getElementById('time-left').innerHTML = 60 - counter;
+        document.getElementById('timer').innerHTML = 30 - counter;
     }, 1000);
 
     //runs game for one minute
     setTimeout(function() {
         clearInterval(submitAnswers);
         clearInterval(countdown);
-    }, 60000);
+        document.getElementById('timer').innerHTML = "Time's up."
+        document.getElementById('keyboard-slap-header').innerHTML = "Game Over."
+    }, 30000);
+})
+
+//audio controls
+let enterPlayButton = document.getElementById('audio-play');
+let enterPauseButton = document.getElementsById('audio-pause');
+
+enterPlayButton.addEventListener('click', function() {
+    let audio = document.getElementById('music');
+
+    audio.play();
+})
+
+enterPauseButton.addEventListener('click', function() {
+    let audio = document.getElementById('music');
+
+    audio.pause();
 })
 
 //logic of a game

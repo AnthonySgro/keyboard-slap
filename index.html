@@ -5,31 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keyboard Slap</title>
     <link rel="stylesheet" href="app.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
 </head>
 <body>
+    <audio loop id="music">
+        <source src="KeyboardSlapSong.mp3" type="audio/ogg">
+      </audio>
+
     <div class="keyboard-slap">
         <h1 id="keyboard-slap-header">Welcome to Keyboard Slap</h1>
         <div>
             <h2 id="slap-this-key-label">Slap these keys:</h2>
-            <p id="slap-this-key-display"></p>
+            <ul id="key-list">
+                <li class="key">
+                    <a href="#" class="show-option" title data-original-title="Keys will appear here">
+                        <i id="key1">-</i>
+                    </a>
+                </li>
+                <li class="key">
+                    <a href="#" class="show-option" title data-original-title="Keys will appear here">
+                        <i id="key2">-</i>
+                    </a>
+                </li>
+                <li class="key">
+                    <a href="#" class="show-option" title data-original-title="Keys will appear here">
+                        <i id="key3">-</i>
+                    </a>
+                </li>
+            </ul>
+            <i id="test"></i>
         </div>
         <div>
-            <h2 id="user-input-label">User Pressed:</h2>
-            <p id="user-input-display"></p>
-            <input id="enter-mash" type="text" placeholder="enter keys!" name="enter-mash">
-            <button id="submit-mash">Submit Mash</button>
+            <div id="input-parent">
+                <input id="enter-mash" class="center" type="text" placeholder="TYPE GUESS HERE" maxlength="6" autofocus="autofocus">
+                <button id="timer">Start Timer</button>
+            </div>
         </div>
         <div>
-            <h2 id="feedback-label">Feedback</h2>
-            <p>Score: <span id="score">0</span></p>
+            <h2>Score: <span id="score">0</span></p>
             <p id="qual-feedback"></p>
-            <p>Time Left: <span id="time-left"></span></p>
+        </div>
+        <button id="submit-mash">Submit Mash</button>
+        <div id="more-controls">
+            <h3>Difficulty</h3>
+            <ul>
+                <li>
+                    <button>Easy</button>
+                </li>
+                <li>
+                    <button>Medium</button>
+                </li>
+                <li>
+                    <button>Hard</button>
+                </li>
+            </ul>
+            <button>Restart</button>
         </div>
         <div>
-            <button id="start-stop">Start/Stop Timer</button>
+            <h3 id="audio-controls">Audio Controls</h3>
+            <button onclick="play()" id="audio-play">Play</button>
+            <button onclick="pause()" id="audio-pause">Pause</button>
         </div>
     </div>
     <script src='keyboardslap.js'></script>
+    <script>
+        let audio = document.getElementById('music');
+        function play() {
+            audio.play();
+        }
+        function pause() {
+            audio.pause();
+        }
+    </script>
 </body>
 </html>
