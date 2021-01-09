@@ -75,7 +75,6 @@ class Game {
     constructor() {
         this.key = randomKeyGenerator();
         this.keySet = findTwoCloseKeys(this.key);
-        this.highScore = 0;
         this.currentScore = 0;
         this.scoreAdd = 0;
         this.currentInput = [];
@@ -120,7 +119,7 @@ let game = newGame();
 // -------------------------HTML AFTER THIS------------------------
 
 //Base cases on the document
-document.getElementById('slap-this-key-display').innerHTML = game.keySet;
+document.getElementById('slap-this-key-display').innerHTML = "";
 
 //when you submit mash...
 let enterSubmitButton = document.getElementById('submit-mash');
@@ -137,7 +136,29 @@ enterSubmitButton.addEventListener('click', function() {
     document.getElementById('score').innerHTML = game.currentScore;
 })
 
+//when you start timer
+let enterStartStopButton = document.getElementById('start-stop');
+enterStartStopButton.addEventListener('click', function() {
 
+    //submits slap every 3 seconds
+    let submitAnswers = setInterval(function() {
+        enterSubmitButton.click();
+    }, 3000);
+
+    let counter = 0;
+
+    //updates countdown every second
+    let countdown = setInterval(function() {
+        counter++;
+        document.getElementById('time-left').innerHTML = 60 - counter;
+    }, 1000);
+
+    //runs game for one minute
+    setTimeout(function() {
+        clearInterval(submitAnswers);
+        clearInterval(countdown);
+    }, 60000);
+})
 
 //logic of a game
 /* console.log(game.keySet);
