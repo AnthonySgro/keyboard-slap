@@ -1,0 +1,28 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #60a9ff;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    min-height: 100vh;
+}
+
+.keyboard-slap {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px 25px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#slapthiskey, #user-input-display {
+    text-decoration: underline;
+}
